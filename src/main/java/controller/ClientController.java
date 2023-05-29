@@ -107,6 +107,20 @@ public class ClientController {
         contador++;
     }
 
+    private void ordenarClientes() {
+        for (int i = 1; i < contador; i++) {
+            Cliente clienteActual = clientes[i];
+            int j = i - 1;
+
+            while (j >= 0 && clientes[j].getCodigo() > clienteActual.getCodigo()) {
+                clientes[j + 1] = clientes[j];
+                j--;
+            }
+
+            clientes[j + 1] = clienteActual;
+        }
+    }
+
     public void mostrarClientes() {
         for (int i = 0; i < contador; i++) {
             System.out.println("Código: " + clientes[i].getCodigo());
@@ -130,14 +144,14 @@ public class ClientController {
     public static void main(String[] args) {
         ClientController registro = new ClientController();
 
-        Cliente cliente1 = new Cliente(1, "López", "Gómez", "Juan", "Lima");
+        Cliente cliente1 = new Cliente(3, "López", "Gómez", "Juan", "Lima");
         Cliente cliente2 = new Cliente(2, "García", "Pérez", "María", "Arequipa");
-        Cliente cliente3 = new Cliente(3, "Pérez", "Rodríguez", "Pedro", "Trujillo");
+        Cliente cliente3 = new Cliente(1, "Pérez", "Rodríguez", "Pedro", "Trujillo");
 
         registro.registrarCliente(cliente1);
         registro.registrarCliente(cliente2);
         registro.registrarCliente(cliente3);
-
+        registro.ordenarClientes();
         registro.mostrarClientes();
     }
 }
