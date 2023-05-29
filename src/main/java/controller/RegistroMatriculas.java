@@ -81,8 +81,8 @@ public class RegistroMatriculas {
         Alumno alumno1 = new Alumno(1, "Juan Pérez");
         Matricula matricula1 = new Matricula(101, alumno1.getCodigo(), "Informática", "Ciclo 3", "2023-1");
 
-        Alumno alumno2 = new Alumno(2, "María García");
-        Matricula matricula2 = new Matricula(102, alumno2.getCodigo(), "Administración", "Ciclo 2", "2023-1");
+        Alumno alumno2 = new Alumno(4, "María García");
+        Matricula matricula2 = new Matricula(104, alumno2.getCodigo(), "Administración", "Ciclo 2", "2023-1");
 
         Alumno alumno3 = new Alumno(3, "Pedro López");
         Matricula matricula3 = new Matricula(103, alumno3.getCodigo(), "Contabilidad", "Ciclo 4", "2023-1");
@@ -90,7 +90,7 @@ public class RegistroMatriculas {
         registro.registrarMatricula(alumno1, matricula1);
         registro.registrarMatricula(alumno2, matricula2);
         registro.registrarMatricula(alumno3, matricula3);
-
+        registro.ordenarMatriculasPorCodigo();
         registro.mostrarMatriculasOrdenadas();
     }
 
